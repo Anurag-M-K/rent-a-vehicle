@@ -4,8 +4,6 @@ const router = express.Router();
 
 router.route("/fetch-all-vehicle").get(fetchAllVehicle)
 
-// router.route("/booking").post(bookingVehicle)
-
 router.route("/fetch-vehicle-by-number-of-wheels/:number_of_wheels").get(fetchVehicleByNumberOfWheels)
 
 router.route("/fetch-vehicle-by-model-type/:type").get(fetchVehicleByModelType)

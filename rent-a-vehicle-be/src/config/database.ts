@@ -7,7 +7,10 @@ const connection = mysql.createPool({
   host: 'localhost',
   user: process.env.DATABASE_USER,
   password: process.env.DATABASE_PASSWORD,
-  database: 'rent_a_vehicle'
+  database: 'rent_a_vehicle',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
 });
 
 connection.query("select 1")

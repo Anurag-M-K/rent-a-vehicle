@@ -35,8 +35,11 @@ function App() {
 
       if (values.endDate) {
         const res = await bookVehicle(values);
+        console.log("Res ",res)
         if (res?.status === 200) {
-          toast.success("Booking confirmed");
+          toast.success(res?.data?.message);
+        } else {
+          toast.error(res?.response.data.message);
         }
       }
     } catch (error) {

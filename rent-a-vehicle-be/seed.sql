@@ -13,6 +13,7 @@ CREATE TABLE vehicles (
     name VARCHAR(255) NOT NULL,
     vehicle_type ENUM('car', 'bike') NOT NULL,
     is_available BOOLEAN DEFAULT TRUE,
+    vehicle_model_type VARCHAR(255)
 );
 
 INSERT INTO vehicles (type_id, name, vehicle_type) VALUES   ((SELECT id FROM bike_types WHERE name = 'cruiser'), 'Ducati XDiavel', 'bike'),   ((SELECT id FROM bike_types WHERE name = 'cruiser'), 'Harly davidson', 'bike');
@@ -49,3 +50,6 @@ UPDATE vehicles SET vehicle_model_type = 'sedan' WHERE id = 23;
 UPDATE vehicles SET vehicle_model_type = 'sedan' WHERE id = 24;
 UPDATE vehicles SET vehicle_model_type = 'cruiser' WHERE id = 25;
 UPDATE vehicles SET vehicle_model_type = 'sports' WHERE id = 26;
+
+
+ALTER  TABLE vehicles DROP COLUMN is_available;

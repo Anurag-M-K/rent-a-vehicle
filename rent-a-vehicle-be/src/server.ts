@@ -1,10 +1,9 @@
-import express, { Request, Response } from "express";
+import express from "express";
 import db from "./config/database";
 const app = express();
-// const port = 3000;
 import rendingRutes from "./router/rent";
 import cors from "cors";
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 dotenv.config();
 
 app.use(express.json());
