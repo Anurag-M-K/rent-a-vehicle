@@ -1,0 +1,5 @@
+export const bg1  = "bg5.jpg"
+export const bg2  = "bg6.jpg"
+export const bg3  = "bg6.jpg"
+export const bg4  = "bg6.jpg"
+export const bg5  = "bg5.jpg"

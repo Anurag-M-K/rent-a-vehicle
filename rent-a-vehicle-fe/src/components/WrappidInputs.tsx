@@ -1,7 +1,5 @@
 import {
-  Checkbox,
   FormControlLabel,
-  FormLabel,
   Radio,
   Tooltip,
 } from "@mui/material";
@@ -9,7 +7,6 @@ import { IoInformationCircle } from "react-icons/io5";
 import ValidationError from "./ValidationError";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from "react";
 
 export function WrappedTextInput({ ...props }: any) {
   if (props.type == "hidden") {
@@ -19,7 +16,7 @@ export function WrappedTextInput({ ...props }: any) {
     <div className={`flex-1 mb-3 ${props.className}`}>
       <div className="flex items-center textwh">
         {props.label && (
-          <h2 className="block mb-2 text-2xl font-medium text-gray-300">
+          <h2 className="block mb-2 text-xl font-bold text-gray-300">
             {props.label}
           </h2>
         )}
@@ -39,7 +36,7 @@ export function WrappedTextInput({ ...props }: any) {
               ? "failure"
               : null
           }
-          className="border-gray-300  border w-full opacity-60 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="border-gray-300   border w-full opacity-40 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder={props.placeholder}
           id={props.id}
           value={props.value}
@@ -54,7 +51,7 @@ export function WrappedTextInput({ ...props }: any) {
 
 export function WrappedRadio({ options, ...props }: any) {
   return (
-    <div className={`flex-1 mb-3 ${props.className}`}>
+    <div className={`flex-1  mb-3 ${props.className}`}>
       <div className="flex items-center textwh">
         {props.label && (
           <h2 className="block mb-2 text-xl font-medium text-gray-500">
@@ -69,7 +66,7 @@ export function WrappedRadio({ options, ...props }: any) {
           </span>
         )}
       </div>
-      <div className="flex items-center">
+      <div className="flex items-center flex-wrap ">
         {options?.map((option: any) => (
           <FormControlLabel
             key={option.value}
@@ -123,9 +120,9 @@ export function WrappedRadio({ options, ...props }: any) {
 export const WrappedDatePicker = ({ label, ...props }: any) => {
   return (
     <div className="flex-1 mb-3 w-full">
-      <div className="flex items-center">
+      <div className="flex w-full items-center">
         {label && (
-          <h2 className="block mb-2 text-2xl font-medium text-gray-300">
+          <h2 className="block mb-2 text-xl font-medium text-gray-300">
             {label}
           </h2>
         )}
