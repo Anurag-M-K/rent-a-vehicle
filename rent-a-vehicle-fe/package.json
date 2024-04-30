@@ -10,12 +10,22 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/icons-material": "^5.15.15",
+    "@mui/material": "^5.15.15",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-date-range": "^2.0.1",
+    "react-dom": "^18.2.0",
+    "react-final-form": "^6.5.9",
+    "react-icons": "^5.1.0",
+    "react-radio-group": "^3.0.3"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
+    "@types/react-date-range": "^1.4.9",
     "@types/react-dom": "^18.2.22",
+    "@types/react-radio-group": "^3.0.7",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
     "@vitejs/plugin-react": "^4.2.1",

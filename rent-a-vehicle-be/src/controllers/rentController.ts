@@ -40,7 +40,7 @@ export const bookingVehicle = asyncHandler(
         !start_date ||
         !end_date
       ) {
-        throw new Error("Missing required fields in request body");
+        res.status(401).json({ message: "Please check your input fields!" });
       }
 
       const [result] = await connection.execute(
@@ -57,7 +57,6 @@ export const bookingVehicle = asyncHandler(
           end_date,
         ]
       );
-      console.log("result: " + JSON.stringify(result));
 
       res.status(201).json({ message: "Booking successful" });
     } catch (error) {
