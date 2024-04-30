@@ -115,6 +115,7 @@ export const bookVehicle = asyncHandler(
       availableVehicle.pop();
 
       const availability = availableVehicle.flat();
+      console.log("availableVehicle",availability)
       if (availability[0]?.is_available === 1) {
         // Assuming there's a booking table, insert the booking details
         const result = await connection.query(

@@ -28,15 +28,18 @@ function App() {
     useState<boolean>(false);
 
   const onSubmit = async (values: any) => {
-    setSubmitValues({ ...submitValues, ...values });
-    setCurrentForm((prevForm) => prevForm + 1);
+    try {
+      setSubmitValues({ ...submitValues, ...values });
+      setCurrentForm((prevForm) => prevForm + 1);
 
-    if(values.endDate){
-      const res = await bookVehicle(values)
-      console.log("booking ",res);
-      if(res?.status === 200){
-        toast.success("Booking confirmed")
+      if (values.endDate) {
+        const res = await bookVehicle(values);
+        if (res?.status === 200) {
+          toast.success("Booking confirmed");
+        }
       }
+    } catch (error) {
+      toast.error("Something went wrong, please try again");
     }
   };
 
@@ -64,7 +67,6 @@ function App() {
     { value: "2", label: "2" },
     { value: "4", label: "4" },
   ];
-
 
   const vehicles_type_options = vehicles?.map((vehicle: any) => ({
     value: vehicle.name.toLowerCase(),
@@ -311,7 +313,7 @@ function App() {
       <div className="w-screen flex flex-col items-center justify-center">
         {renderForm(currentForm)}
       </div>
-      <Toaster/>
+      <Toaster />
     </div>
   );
 }
