@@ -27,3 +27,8 @@ To start the application, Direct to rent_a_vehicle_be and rent_a_vehicle_fe run:
 - MySQL
 
 
+## env variables
+    fe - VITE_APP_BACKEND_URL = <your server url>
+    be - DATABASE_USER ='<USERNAME>'
+         DATABASE_PASSWORD ='<PASSWORD>'
+         PORT = <PORT>
