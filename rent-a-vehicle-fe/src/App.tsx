@@ -6,7 +6,12 @@ import {
   WrappedRadio,
   WrappedTextInput,
 } from "./components/WrappidInputs";
-import { validation_required, validation_required_for_end_date, validation_required_for_radio, validation_required_for_start_date } from "./components/validations";
+import {
+  validation_required,
+  validation_required_for_end_date,
+  validation_required_for_radio,
+  validation_required_for_start_date,
+} from "./components/validations";
 import {
   bookVehicle,
   fetchVehiclesByModelType,
@@ -34,8 +39,7 @@ function App() {
       setCurrentForm((prevForm) => prevForm + 1);
 
       if (values.endDate) {
-        const res = await bookVehicle(values);
-        console.log("Res ",res)
+        const res: any = await bookVehicle(values);
         if (res?.status === 200) {
           toast.success(res?.data?.message);
         } else {
@@ -85,10 +89,9 @@ function App() {
   const renderForm = (index: number) => {
     switch (index) {
       case 0:
-      
         return (
           <>
-            <h1 className="text-3xl hover:scale-75 cursor-pointer duration-300 text-white font-semibold text-start mb-10">
+            <h1 className="text-3xl hover:scale-105 cursor-pointer duration-300 text-white font-semibold text-start mb-10">
               What's your name ?
             </h1>
             <Form
@@ -96,7 +99,7 @@ function App() {
               render={({ handleSubmit }) => (
                 <form
                   onSubmit={handleSubmit}
-                  className="mx-10 md:mx-0   opacity-950 w-full md:w-2/5 m-auto p-8 border-2 border-gray pt-8 shadow-lg rounded-3xl"
+                  className="mx-10 md:mx-0  hover:border-orange-400  opacity-950 w-full md:w-2/5 m-auto  p-8 border-2 border-gray pt-8 shadow-lg rounded-3xl"
                 >
                   <FormGroup>
                     <FormControl>
@@ -118,7 +121,7 @@ function App() {
                     <div className="flex justify-center mt-5">
                       <Button
                         type="submit"
-                        className="my-2"
+                        className="my-2 bg-black"
                         variant="contained"
                         color="warning"
                       >
@@ -142,7 +145,7 @@ function App() {
               render={({ handleSubmit }) => (
                 <form
                   onSubmit={handleSubmit}
-                  className="mx-10 md:mx-0  w-full hover:scale-105 duration-300 md:w-2/5 m-auto p-8 border-4 border-gray pt-8 shadow-lg rounded-3xl"
+                  className="mx-10 md:mx-0  w-full hover:border-orange-400  md:w-2/5 m-auto p-8 border-2 border-gray pt-8 shadow-lg rounded-3xl"
                 >
                   <FormGroup>
                     <FormControl>
@@ -182,7 +185,7 @@ function App() {
               render={({ handleSubmit }) => (
                 <form
                   onSubmit={handleSubmit}
-                  className="mx-10 md:mx-0 w-full md:w-2/5 m-auto p-8 border border-gray pt-8 shadow-lg rounded-3xl"
+                  className="mx-10 hover:border-orange-400  md:mx-0 w-full md:w-2/5 m-auto p-8 border-2 border-gray pt-8 shadow-lg rounded-3xl"
                 >
                   <FormGroup>
                     <FormControl>
@@ -222,7 +225,7 @@ function App() {
               render={({ handleSubmit }) => (
                 <form
                   onSubmit={handleSubmit}
-                  className="mx-10 md:mx-0 w-full md:w-2/5 m-auto p-8 border border-gray pt-8 shadow-lg rounded-3xl"
+                  className="mx-10 md:mx-0 hover:border-orange-400  w-full md:w-2/5 m-auto p-8 border-2 border-gray pt-8 shadow-lg rounded-3xl"
                 >
                   <FormGroup>
                     <FormControl>
@@ -230,8 +233,6 @@ function App() {
                         <Field
                           name="vehicle"
                           validate={validation_required_for_radio}
-
-
                           options={vehicle_option}
                           component={WrappedRadio}
                         />
@@ -264,7 +265,7 @@ function App() {
               render={({ handleSubmit }) => (
                 <form
                   onSubmit={handleSubmit}
-                  className="mx-10 md:mx-0 w-full md:w-2/5 m-auto px-3 border border-gray pt-8 shadow-lg rounded-3xl"
+                  className="mx-10 md:mx-0 hover:border-orange-400  w-full md:w-2/5 m-auto px-3 border-2 border-gray pt-8 shadow-lg rounded-3xl"
                 >
                   <FormGroup>
                     <FormControl>
@@ -323,8 +324,8 @@ function App() {
             : currentForm === 3
             ? bg4
             : bg5
-        })`
-        ,        backgroundSize: "cover",
+        })`,
+        backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         minHeight: "100vh",

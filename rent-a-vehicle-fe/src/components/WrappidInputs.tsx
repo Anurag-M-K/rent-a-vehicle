@@ -36,7 +36,7 @@ export function WrappedTextInput({ ...props }: any) {
               ? "failure"
               : null
           }
-          className="border-gray-300   border w-full opacity-40 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="border-gray-300  hover:scale-y-90  duration-300 ease-in-out  border w-full opacity-40 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder={props.placeholder}
           id={props.id}
           value={props.value}
@@ -67,7 +67,7 @@ export function WrappedRadio({ options, ...props }: any) {
         )}
       </div>
       <div className="flex items-center flex-wrap ">
-        {options?.map((option: any) => (
+        {/* {options?.map((option: any) => (
           <FormControlLabel
             key={option.value}
             control={
@@ -80,7 +80,24 @@ export function WrappedRadio({ options, ...props }: any) {
             }
             label={option.label}
           />
-        ))}
+        ))}  */}
+              {options?.map((option: any) => (
+          <FormControlLabel
+            key={option.value}
+            control={
+                 <input
+            type="radio"
+            name={props.name}
+            value={option.value}
+            checked={props.input.value === option.value}
+            onChange={(event) => props.input.onChange(option.value)}
+            className="radio-input mx-3 w-6 h-4"
+            />
+            }  
+            label={option.label}
+          />
+        ))} 
+       
       </div>
       <ValidationError props={props} />
     </div>
