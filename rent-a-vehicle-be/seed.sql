@@ -39,3 +39,13 @@ CREATE TABLE bookings (
     FOREIGN KEY (vehicle_id) REFERENCES vehicles(id) ON DELETE CASCADE
 );
 
+ALTER TABLE vehicles
+ ADD COLUMN vehicle_model_type VARCHAR(255);
+
+ UPDATE vehicles SET vehicle_model_type = 'hatchback' WHERE id = 20;
+UPDATE vehicles SET vehicle_model_type = 'suv' WHERE id = 21;
+UPDATE vehicles SET vehicle_model_type = 'suv' WHERE id = 22;
+UPDATE vehicles SET vehicle_model_type = 'sedan' WHERE id = 23;
+UPDATE vehicles SET vehicle_model_type = 'sedan' WHERE id = 24;
+UPDATE vehicles SET vehicle_model_type = 'cruiser' WHERE id = 25;
+UPDATE vehicles SET vehicle_model_type = 'sports' WHERE id = 26;
