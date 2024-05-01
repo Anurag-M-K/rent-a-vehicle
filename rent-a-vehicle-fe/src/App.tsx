@@ -54,7 +54,6 @@ function App() {
     }
   };
 
-  console.log("submitvalues",submitValues)
   const fetchVehiclesType = async () => {
     const res = await getVehicleTypeByNumberOfWheels(
       submitValues?.number_of_wheels

@@ -35,7 +35,6 @@ export const fetchVehicleByModelType = asyncHandler(
     // query using type and number of wheels. 
     try {
       const { type, number_of_wheels } = req.params;
-      console.log("req.params: " + type,number_of_wheels)
       const vehicle_type = number_of_wheels == "2" ? "bike" : "car";
       const query = `
       SELECT *
