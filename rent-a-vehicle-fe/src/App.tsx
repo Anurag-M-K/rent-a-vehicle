@@ -19,6 +19,7 @@ import {
 } from "./api/rentApis";
 import toast, { Toaster } from "react-hot-toast";
 import { bg1, bg2, bg3, bg4, bg5 } from "./constant/constants";
+import { SiTicktick } from "react-icons/si";
 
 // type IFormData = {
 //   first_name: string;
@@ -30,6 +31,7 @@ function App() {
   const [currentForm, setCurrentForm] = useState<number>(0);
   const [submitValues, setSubmitValues] = useState<any>();
   const [vehicles, setVehicles] = useState([]);
+  const [successScreen, setSuccessScreen] = useState<any>([]);
   const [hasFetchedVehiclesType, setHasFetchedVehiclesType] =
     useState<boolean>(false);
 
@@ -40,6 +42,7 @@ function App() {
 
       if (values.endDate) {
         const res: any = await bookVehicle(values);
+        setSuccessScreen(res);
         if (res?.status === 200) {
           toast.success(res?.data?.message);
         } else {
@@ -51,6 +54,7 @@ function App() {
     }
   };
 
+  console.log("submitvalues",submitValues)
   const fetchVehiclesType = async () => {
     const res = await getVehicleTypeByNumberOfWheels(
       submitValues?.number_of_wheels
@@ -59,7 +63,7 @@ function App() {
     setHasFetchedVehiclesType(true);
   };
   const fetchVehiclesByType = async () => {
-    const res = await fetchVehiclesByModelType(submitValues?.vehicleType);
+    const res = await fetchVehiclesByModelType(submitValues?.vehicleType,submitValues?.number_of_wheels);
     setVehicles(res);
   };
 
@@ -307,7 +311,23 @@ function App() {
           </>
         );
       default:
-        return null;
+        return (
+          <>
+            <div className="flex justify-center items-center h-screen gap-y-10 flex-col">
+              {successScreen?.status === 200 && (
+                <><SiTicktick color="green" size={300} /><h1 className="text-5xl font-semibold text-green-600">Booking confirmed</h1></>
+              )}{" "}
+              <Button
+                onClick={() => window.location.reload()}
+                color="warning"
+                variant="contained"
+                size="medium"
+              >
+                Go to main menu
+              </Button>
+            </div>
+          </>
+        );
     }
   };
 

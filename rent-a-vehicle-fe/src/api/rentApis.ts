@@ -12,10 +12,10 @@ export const getVehicleTypeByNumberOfWheels = async (number_of_wheels: string, )
     }
 };
 
-export const fetchVehiclesByModelType = async (type:string) => {
+export const fetchVehiclesByModelType = async (type:string,number_of_wheels:string) => {
     try {
         const res = await instance({
-            url: `${import.meta.env.VITE_APP_BACKEND_URL}/api/rent/fetch-vehicle-by-model-type/${type}`,
+            url: `${import.meta.env.VITE_APP_BACKEND_URL}/api/rent/fetch-vehicle-by-model-type/${type}/${number_of_wheels}`,
             method: 'GET'
         })
         return res.data;

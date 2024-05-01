@@ -32,9 +32,17 @@ export const fetchVehicleByNumberOfWheels = asyncHandler(
 
 export const fetchVehicleByModelType = asyncHandler(
   async (req: Request, res: Response) => {
+    // query using type and number of wheels. 
     try {
-      const { type } = req.params;
-      const query = `SELECT * FROM vehicles WHERE vehicle_model_type = '${type}'`;
+      const { type, number_of_wheels } = req.params;
+      console.log("req.params: " + type,number_of_wheels)
+      const vehicle_type = number_of_wheels == "2" ? "bike" : "car";
+      const query = `
+      SELECT *
+      FROM vehicles
+      WHERE vehicle_model_type = '${type}' 
+      AND vehicle_type = '${vehicle_type}'
+    `;;
       const vehicles = await connection.query(query);
       res.status(200).json(vehicles.shift());
     } catch (error) {
